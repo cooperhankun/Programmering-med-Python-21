@@ -13,8 +13,8 @@ class TestVector(unittest.TestCase):
         self.assertEqual(v.numbers, (self.x, self.y))
 
     def test_create_5D_vector(self):
-        v = Vector(-1,0,-5,-50.2, 52.2)
-        self.assertEqual(v.numbers, (-1,0,-5,-50.2,52.2))
+        v = Vector(-1,0,-5,-50.2,23)
+        self.assertEqual(v.numbers, (-1,0,-5,-50.2,23))
 
     def test_create_empty_vector(self):
         with self.assertRaises(ValueError):
@@ -42,12 +42,12 @@ class TestVector(unittest.TestCase):
 
     def test_multiply_scalar(self) -> None:
         v1 = self.create_2D_vector()
-        v2 = v1*5
-        self.assertEqual(v2, Vector(5,10))
+        v2 = Vector(5,10)
+        self.assertEqual(v2,v1*5)
 
-    def test_reverse_multiply_scalar(self) -> None:
+    def test_multiply_scalar(self) -> None:
         v1 = self.create_2D_vector()
-        v2 = 5*v1
+        v2 = v1*5
         self.assertEqual(v2, Vector(5,10))
 
     def test_len_vector(self) -> None:
